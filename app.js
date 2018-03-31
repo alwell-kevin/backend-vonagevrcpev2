@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const sms = require('./sendSms');
+const db = require('./dbInterface');
 const port = process.env.PORT || 3000;
 const app = express();
 
@@ -16,9 +17,13 @@ app.all('/user', (req, res) => {
 });
 
 app.all('/triggerSms', (req, res) => {
+    var userNum = req.body.toNum;
+
+    var userId = db.getUserByNumber(userNum);
+
     //Send SMS to dynamic number
-    sms.triggerSms(req.body.toNum);
-    
+    sms.triggerSms(userNum);
+
     res.sendStatus(200)
 })
 
