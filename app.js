@@ -13,6 +13,10 @@ app.use(bodyParser.json({
 
 app.all('/user', (req, res) => {
     console.log("WEB FORM SUBMITTED: ", req);
+    console.log("REQ BODY: ", req.body);
+    user = req.body
+    db.storeUser(user);
+    
     res.sendStatus(200);
 });
 
