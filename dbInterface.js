@@ -20,7 +20,7 @@ const storeUser = (userInfo) => {
 
     var params = {
         TableName: "vrcpe-leads",
-        Item: JSON.parse(userInfo)
+        Item: userInfo
     };
 
     console.log("Adding a new user...", userInfo);
