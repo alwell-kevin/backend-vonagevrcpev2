@@ -17,10 +17,8 @@ app.all('/user', (req, res) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
 
-    console.log("WEB FORM SUBMITTED: ", req);
-    console.log("REQ BODY: ", req.body);
     console.log("REQ BODY: ", req.query);
-    user = req.body
+    user = req.query
     db.storeUser(user);
 
     res.jsonp(user);
