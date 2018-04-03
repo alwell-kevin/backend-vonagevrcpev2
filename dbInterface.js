@@ -30,6 +30,7 @@ const storeUser = (userInfo) => {
         companySize: userInfo.companySize,
         vertical: userInfo.vertical
     }
+    JSON.stringify(user);
 
     var params = {
         TableName: "vrcpe-leads",
