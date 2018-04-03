@@ -23,7 +23,7 @@ app.all('/user', (req, res) => {
     user = req.body
     db.storeUser(user);
 
-    res.sendStatus(200);
+    res.jsonp(user);
 });
 
 app.all('/triggerSms', (req, res) => {
