@@ -16,8 +16,8 @@ app.all('/user', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
-    user = JSON.parse(req.query)
-
+    user = req.query
+    console.log(typeof(user));
     db.storeUser(user);
 
     res.jsonp(user);
