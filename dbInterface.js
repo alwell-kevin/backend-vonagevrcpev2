@@ -16,11 +16,24 @@ const getUserByNumber = (userNum) => {
 }
 
 const storeUser = (userInfo) => {
-    var docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'});
+    var docClient = new AWS.DynamoDB.DocumentClient({
+        region: 'us-east-1'
+    });
+
+    var user = {
+        name: userInfo.name,
+        company: userInfo.company,
+        email: userInfo.email,
+        currentP: userInfo.currentP,
+        chnlMgr: userInfo.chnlMgr,
+        typeP: userInfo.typeP,
+        companySize: userInfo.companySize,
+        vertical: userInfo.vertical
+    }
 
     var params = {
         TableName: "vrcpe-leads",
-        Item: userInfo
+        Item: user
     };
 
     console.log("Adding a new user...", userInfo);
