@@ -16,7 +16,7 @@ const getUserByNumber = (userNum) => {
 }
 
 const storeUser = (userInfo) => {
-    var docClient = new AWS.DynamoDB.DocumentClient();
+    var docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'});
 
     var params = {
         TableName: "vrcpe-leads",
