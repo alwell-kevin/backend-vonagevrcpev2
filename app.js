@@ -12,11 +12,17 @@ app.use(bodyParser.json({
 }));
 
 app.all('/user', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+
     console.log("WEB FORM SUBMITTED: ", req);
     console.log("REQ BODY: ", req.body);
+    console.log("REQ BODY: ", req.query);
     user = req.body
     db.storeUser(user);
-    
+
     res.sendStatus(200);
 });
 
