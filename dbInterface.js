@@ -21,34 +21,34 @@ const storeUser = (userInfo) => {
     });
 
     var user = {
-        name: userInfo.name,
-        company: userInfo.company,
-        email: userInfo.email,
-        currentP: userInfo.currentP,
-        chnlMgr: userInfo.chnlMgr,
-        typeP: userInfo.typeP,
-        companySize: userInfo.companySize,
-        vertical: userInfo.vertical
+        "name": userInfo.name,
+        "company": userInfo.company,
+        "email": userInfo.email,
+        "currentP": userInfo.currentP,
+        "chnlMgr": userInfo.chnlMgr,
+        "typeP": userInfo.typeP,
+        "companySize": userInfo.companySize,
+        "vertical": userInfo.vertical
     }
-    JSON.stringify(user);
+
+    console.log("PRINT USER", user)
 
     var params = {
         TableName: "vrcpe-leads",
         Item: user
     };
 
-    console.log("Adding a new user...", userInfo);
-    return new Promise((resolve, reject) => {
-        docClient.put(params, function (err, data) {
-            if (err) {
-                return err;
-                console.error("Unable to add item. Error JSON:", userInfo);
-            } else {
-                console.log("Added item:", userInfo);
-                return data;
-            }
-        });
-    })
+    console.log("Adding a new user...", user, "Params: ", params);
+
+    docClient.put(params, function (err, data) {
+        if (err) {
+            return err;
+            console.error("Unable to add item. Error JSON:", user);
+        } else {
+            console.log("Added item:", user);
+            return data;
+        }
+    });
 }
 
 module.exports.getUserByNumber = getUserByNumber;
