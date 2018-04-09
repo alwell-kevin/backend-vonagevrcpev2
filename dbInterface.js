@@ -20,24 +20,21 @@ const storeUser = (userInfo) => {
         region: 'us-east-1'
     });
 
-    var user = {
-        "name": userInfo.name,
-        "company": userInfo.company,
-        "email": userInfo.email,
-        "currentP": userInfo.currentP,
-        "chnlMgr": userInfo.chnlMgr,
-        "typeP": userInfo.typeP,
-        "companySize": userInfo.companySize,
-        "vertical": userInfo.vertical
-    }
-
-    console.log("PRINT USER", user)
-
     var params = {
         TableName: "vrcpe-leads",
-        Item: user
+        Item: {
+            "email": userInfo.email,
+            "name": userInfo.name,
+            "company": userInfo.company,
+            "currentP": userInfo.currentP,
+            "chnlMgr": userInfo.chnlMgr,
+            "typeP": userInfo.typeP,
+            "companySize": userInfo.companySize,
+            "vertical": userInfo.vertical
+        }
     };
-
+    
+    console.log("docClient...", docClient);
     console.log("Adding a new user...", user, "Params: ", params);
 
     docClient.put(params, function (err, data) {
