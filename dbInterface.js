@@ -21,17 +21,22 @@ const storeUser = (userInfo) => {
     });
 
     var params = {
-        TableName: "vrcpe-leads",
-        Item: {
-            "email": userInfo.email,
-            "name": userInfo.name,
-            "company": userInfo.company,
-            "currentP": userInfo.currentP,
-            "chnlMgr": userInfo.chnlMgr,
-            "typeP": userInfo.typeP,
-            "companySize": userInfo.companySize,
-            "vertical": userInfo.vertical
+        TableName: "vrcpeLeads",
+        Item: 
+        {
+            "email": "test",
+            "name":"ka"
         }
+        // {
+        //     "email": userInfo.email,
+        //     "name": userInfo.name,
+        //     "company": userInfo.company,
+        //     "currentP": userInfo.currentP,
+        //     "chnlMgr": userInfo.chnlMgr,
+        //     "typeP": userInfo.typeP,
+        //     "companySize": userInfo.companySize,
+        //     "vertical": userInfo.vertical
+        // }
     };
     
     console.log("Adding a new user...", params);
