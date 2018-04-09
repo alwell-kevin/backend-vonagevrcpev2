@@ -16,30 +16,24 @@ const getUserByNumber = (userNum) => {
 }
 
 const storeUser = (userInfo) => {
+    var user;
+    
     var docClient = new AWS.DynamoDB.DocumentClient({
         region: 'us-east-1'
     });
-    
+
     if (userInfo) {
         for (var key in userInfo) {
             if (userInfo.hasOwnProperty(key)) {
                 if (userInfo[key].length < 1) {
                     userInfo[key] = "No-Response";
+                } else {
+                    user[key] = userInfo[key]
                 }
             }
         }
     }
 
-    var user = {
-        "contact-email": userInfo.email,
-        "name": userInfo.name,
-        "company": userInfo.company,
-        "currentP": userInfo.currentP,
-        "chnlMgr": userInfo.chnlMgr,
-        "typeP": userInfo.typeP,
-        "companySize": userInfo.companySize,
-        "vertical": userInfo.vertical
-    }
 
     var params = {
         TableName: "vrcpeLeads",
