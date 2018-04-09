@@ -16,7 +16,7 @@ const getUserByNumber = (userNum) => {
 }
 
 const storeUser = (userInfo) => {
-    var user;
+    var user = {};
 
     var docClient = new AWS.DynamoDB.DocumentClient({
         region: 'us-east-1'
