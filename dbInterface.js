@@ -28,19 +28,19 @@ const storeUser = (userInfo) => {
                 if (userInfo[key].length < 1) {
                     userInfo[key] = "No-Response";
                 } else if (userInfo[key].length > 1) {
-                    user[key] = userInfo[key]
+                    user.key = userInfo[key]
                 }
             }
         }
     }
-
+    console.log(user);
 
     var params = {
         TableName: "vrcpeLeads",
         Item: user
     };
 
-    console.log("Adding a new user...", params);
+    console.log("Adding a new user...", params.TableName, params.Item);
 
     docClient.put(params, function (err, data) {
         if (err) {
