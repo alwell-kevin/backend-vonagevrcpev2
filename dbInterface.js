@@ -21,8 +21,9 @@ const storeUser = (userInfo) => {
     });
 
     var params = {
-        TableName: "vrcpe-leads",
+        TableName: "humanResourcesLeadList",
         Item: {
+            "tel": "7326157295",
             "email": userInfo.email,
             "name": userInfo.name,
             "company": userInfo.company,
@@ -33,7 +34,7 @@ const storeUser = (userInfo) => {
             "vertical": userInfo.vertical
         }
     };
-    
+
     console.log("docClient...", docClient);
     console.log("Adding a new user...", user, "Params: ", params);
 
