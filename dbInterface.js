@@ -28,7 +28,7 @@ const storeUser = (userInfo) => {
                 if (userInfo[key].length < 1) {
                     userInfo[key] = "No-Response";
                 } else if (userInfo[key].length > 1) {
-                    user.key = userInfo[key]
+                    user[key] = userInfo[key]
                 }
             }
         }
