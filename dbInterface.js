@@ -24,14 +24,14 @@ const storeUser = (userInfo) => {
         TableName: "vrcpeLeads",
         Item: {
             "email": "web-generated",
-            "contact-email": userInfo.email,
-            "name": userInfo.name,
-            "company": userInfo.company,
-            "currentP": userInfo.currentP,
-            "chnlMgr": userInfo.chnlMgr,
-            "typeP": userInfo.typeP,
-            "companySize": userInfo.companySize,
-            "vertical": userInfo.vertical
+            "contact-email":" userInfo.email",
+            "name":" userInfo.name",
+            "company":" userInfo.company",
+            "currentP":" userInfo.currentP",
+            "chnlMgr":" userInfo.chnlMgr",
+            "typeP":" userInfo.typeP",
+            "companySize":" userInfo.companySize",
+            "vertical":" userInfo.vertical"
         }
     };
 
