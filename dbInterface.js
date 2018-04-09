@@ -17,17 +17,17 @@ const getUserByNumber = (userNum) => {
 
 const storeUser = (userInfo) => {
     var user;
-    
+
     var docClient = new AWS.DynamoDB.DocumentClient({
         region: 'us-east-1'
     });
 
     if (userInfo) {
         for (var key in userInfo) {
-            if (userInfo.hasOwnProperty(key)) {
+            if (userInfo.hasOwnProperty(key) && typeof userInfo[key] === 'string') {
                 if (userInfo[key].length < 1) {
                     userInfo[key] = "No-Response";
-                } else {
+                } else if (userInfo[key].length > 1) {
                     user[key] = userInfo[key]
                 }
             }
