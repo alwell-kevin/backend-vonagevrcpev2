@@ -23,7 +23,8 @@ const storeUser = (userInfo) => {
     var params = {
         TableName: "vrcpeLeads",
         Item: {
-            "email": userInfo.email,
+            "email": "web-generated",
+            "contact-email": userInfo.email,
             "name": userInfo.name,
             "company": userInfo.company,
             "currentP": userInfo.currentP,
