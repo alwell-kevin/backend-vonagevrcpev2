@@ -19,20 +19,31 @@ const storeUser = (userInfo) => {
     var docClient = new AWS.DynamoDB.DocumentClient({
         region: 'us-east-1'
     });
+    
+    if (userInfo) {
+        for (var key in userInfo) {
+            if (userInfo.hasOwnProperty(key)) {
+                if (userInfo[key].length < 1) {
+                    userInfo[key] = "No-Response";
+                }
+            }
+        }
+    }
+
+    var user = {
+        "contact-email": userInfo.email,
+        "name": userInfo.name,
+        "company": userInfo.company,
+        "currentP": userInfo.currentP,
+        "chnlMgr": userInfo.chnlMgr,
+        "typeP": userInfo.typeP,
+        "companySize": userInfo.companySize,
+        "vertical": userInfo.vertical
+    }
 
     var params = {
         TableName: "vrcpeLeads",
-        Item: {
-            "email": "web-generated",
-            "contact-email":" userInfo.email",
-            "name":" userInfo.name",
-            "company":" userInfo.company",
-            "currentP":" userInfo.currentP",
-            "chnlMgr":" userInfo.chnlMgr",
-            "typeP":" userInfo.typeP",
-            "companySize":" userInfo.companySize",
-            "vertical":" userInfo.vertical"
-        }
+        Item: user
     };
 
     console.log("Adding a new user...", params);
